@@ -402,6 +402,41 @@ print(len(fruits)) # 2
 
 # Programación orientada a objetos
 
+**¿Qué es la programación orientada a objetos?**
+
+La programación orientada a objetos es un paradigma de programación que  otorga los medios para estructurar programas de tal manera que las  propiedades y comportamientos estén envueltos en objetos individuales.
+
+La **Programación Orientada a Objetos** viene de una filosofía o forma de pensar que es la **Orientación a Objetos** y esto surge a partir de los problemas que necesitamos plasmar en código.
+
+Es analizar un problema en forma de objetos para después llevarlo a código, eso es la **Orientación a Objetos**.
+
+El paradigma de Programación Orientada a Objetos se compone de 4 elementos:
+
+- Clases
+- Propiedades
+- Métodos
+- Objetos
+
+Para poder entender cómo modelar estos objetos tenemos que tener claros cuatro principios:
+
+- **Encapsulation**: es hacer que un dato sea inviolable, inalterable cuando se le asigne un modificador de acceso. 
+
+  Cada objeto tiene sus propias funciones y datos sin afectar a otros, son lógica interna.
+
+- **Abstraction**: es cuando separamos los datos de un objeto para generar un molde. El usuario podrá interactuar con el objeto sin necesidad de conocer toda la lógica del mismo.
+
+  En el caso de POO una **Clase** es el modelo por el cual nuestros objetos se van a construir y nos van a permitir generar más objetos.
+
+- **Inheritance**: La **herencia** nos permite crear nuevas clases a partir de otras, se basa en modelos y conceptos de la vida real. También  tenemos una jerarquía de **padre e hijo**.
+
+  Si se declara un método en una clase  todas las subclases heredan ese método, es decir: si tu declaras un  método “imprimir” que ejecute un print en una clase, las subclases podrán usar el método imprimir, sin necesidad de declararlo en cada una.
+
+- **Polymorphism**: Es construir métodos con el mismo nombre pero con comportamiento diferente.
+
+  **Polimorfismo**: Muchas formas. Poli = muchas, morfismo = formas. **NO** es Poliformismo
+
+Las clases simplemente nos sirven como un molde para poder generar diferentes instancias.
+
 ## Decoradores
 
 **Python** es un lenguaje que acepta **diversos** paradigmas como programación orientada a objetos y la programación  funcional, siendo estos los temas de nuestro siguiente módulo.
