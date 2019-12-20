@@ -165,6 +165,25 @@ A continuación la lista actualizada hasta hoy (pueden acceder a la documentaci�
 | [`compile()`](https://docs.python.org/3/library/functions.html#compile) | [`globals()`](https://docs.python.org/3/library/functions.html#globals) | [`map()`](https://docs.python.org/3/library/functions.html#map) | [`reversed()`](https://docs.python.org/3/library/functions.html#reversed) | [`__import__()`](https://docs.python.org/3/library/functions.html#__import__) |
 | [`complex()`](https://docs.python.org/3/library/functions.html#complex) | [`hasattr()`](https://docs.python.org/3/library/functions.html#hasattr) | [`max()`](https://docs.python.org/3/library/functions.html#max) | [`round()`](https://docs.python.org/3/library/functions.html#round) |                                                              |
 
+|  Command   |      | Action                                                       |
+| :--------: | :--- | ------------------------------------------------------------ |
+|    dir     |      | Muestra todos las funciones accesibles del objeto            |
+|    Help    |      | imprime la documentación de la función                       |
+| Docstrings |      | Para generar una documentación utilizar: <br />`"" """ <br />`<br />`pass` |
+
+|  Command   |      | Action                                                                                |
+
+|    dir             |      | Muestra todos las funciones accesibles del objeto            |
+ |    Help         |      | imprime la documentación de la función                            |
+
+**Docstrings**:  Para generar una documentación utilizar triples dobles comillas `"""` :
+
+```python
+def my_function():
+    """ documentación de la función """ 
+    pass
+```
+
 ## Declaración de funciones
 
 Para declarar una función se sigue la siguiente estructura:
@@ -204,6 +223,65 @@ Los siguientes valores se consideran falsos (**`false`**)):
 + instancias de clases definidas por el usuario, si la clase define un método __nonzero __ () o __len __ (), cuando ese método devuelve el entero cero o valor bool o False = **`false`**
 
 Todos los demás valores se consideran verdaderos, por lo que los objetos de muchos tipos siempre son verdaderos. = **`true`**
+
+## Strings (cadenas de caracteres)
+
+Los **strings** o **cadenas de textos** tienen un comportamiento distinto a otros tipos como los booleanos,  enteros, floats. Las cadenas son secuencias de caracteres, todas se  pueden acceder a través de un índice.
+
+Podemos saber la longitud de un *string*, cuántos caracteres se encuentran en esa secuencia. Lo podemos saber con la ***built-in function\*** global llamada `len`.
+
+Algo importante a tener en cuenta cuando hablamos de *strings* es que estos son inmutables, esto significa que cada vez que modificamos uno estamos generando un nuevo objeto en memoria.
+
+El índice de la primera letra es 0, en la programación se empieza a contar desde 0
+
+## Funciones de cadenas de caracteres (Strings)
+
+| Method                                                       | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [capitalize()](https://www.w3schools.com/python/ref_string_capitalize.asp) | Convierte el primer carácter en mayúsculas                   |
+| [casefold()](https://www.w3schools.com/python/ref_string_casefold.asp) | Convierte una cadena en minúsculas                           |
+| [center()](https://www.w3schools.com/python/ref_string_center.asp) | Devuelve una cadena centrada                                 |
+| [count()](https://www.w3schools.com/python/ref_string_count.asp) | Devuelve el número de veces que un valor especificado se produce en una cadena |
+| [encode()](https://www.w3schools.com/python/ref_string_encode.asp) | Devuelve una versión codificada de la cadena                 |
+| [endswith()](https://www.w3schools.com/python/ref_string_endswith.asp) | Devuelve true si los extremos de cadena con el valor especificado |
+| [expandtabs()](https://www.w3schools.com/python/ref_string_expandtabs.asp) | Establece el tamaño de la pestaña de la cadena               |
+| [find()](https://www.w3schools.com/python/ref_string_find.asp) | Busca la cadena de un valor especificado y devuelve la posición de donde fue encontrado |
+| [format()](https://www.w3schools.com/python/ref_string_format.asp) | Formatos especifican los valores de una serie                |
+| [format_map()](https://www.programiz.com/python-programming/methods/string/format_map) | Formatos especifican los valores de una serie                |
+| [index()](https://www.w3schools.com/python/ref_string_index.asp) | Busca la cadena de un valor especificado y devuelve la posición de donde fue encontrado |
+| [isalnum()](https://www.w3schools.com/python/ref_string_isalnum.asp) | Devuelve verdadero si todos los caracteres de la cadena son alfanuméricos |
+| [isalpha()](https://www.w3schools.com/python/ref_string_isalpha.asp) | Devuelve True si todos los caracteres de la cadena están en el alfabeto |
+| [isdecimal()](https://www.w3schools.com/python/ref_string_isdecimal.asp) | Devuelve True si todos los caracteres de la cadena son decimales |
+| [isdigit()](https://www.w3schools.com/python/ref_string_isdigit.asp) | Devuelve verdadero si todos los caracteres de la cadena son dígitos |
+| [isidentifier()](https://www.w3schools.com/python/ref_string_isidentifier.asp) | Devuelve True si la cadena es un identificador               |
+| [islower()](https://www.w3schools.com/python/ref_string_islower.asp) | Devuelve verdadero si todos los caracteres de la cadena son minúsculas |
+| [isnumeric()](https://www.w3schools.com/python/ref_string_isnumeric.asp) | Devuelve verdadero si todos los caracteres de la cadena son numéricos |
+| [isprintable()](https://www.w3schools.com/python/ref_string_isprintable.asp) | Devuelve verdadero si todos los caracteres de la cadena son imprimibles |
+| [isspace()](https://www.w3schools.com/python/ref_string_isspace.asp) | Devuelve True si todos los caracteres de la cadena son espacios en blanco |
+| [istitle()](https://www.w3schools.com/python/ref_string_istitle.asp) | Devuelve True si la cadena sigue las reglas de un título     |
+| [isupper()](https://www.w3schools.com/python/ref_string_isupper.asp) | Devuelve True si todos los caracteres de la cadena son mayúsculas |
+| [join()](https://www.w3schools.com/python/ref_string_join.asp) | Se une a los elementos de un iterable al final de la cadena  |
+| [ljust()](https://www.w3schools.com/python/ref_string_ljust.asp) | Devuelve una versión justificada izquierda de la cadena      |
+| [lower()](https://www.w3schools.com/python/ref_string_lower.asp) | Convierte una cadena en minúsculas                           |
+| [lstrip()](https://www.w3schools.com/python/ref_string_lstrip.asp) | Devuelve una versión de ajuste izquierdo de la cuerda        |
+| [maketrans()](https://www.programiz.com/python-programming/methods/string/maketrans) | Devuelve una tabla de traducción para ser utilizado en traducciones |
+| [partition()](https://www.w3schools.com/python/ref_string_partition.asp) | Devuelve una tupla donde la cadena se separó en tres partes  |
+| [replace()](https://www.w3schools.com/python/ref_string_replace.asp) | Devuelve una serie en un valor especificado es reemplazado con un valor especificado |
+| [rfind()](https://www.w3schools.com/python/ref_string_rfind.asp) | Busca la cadena de un valor especificado y devuelve la última posición de donde fue encontrado |
+| [rindex()](https://www.w3schools.com/python/ref_string_rindex.asp) | Busca la cadena de un valor especificado y devuelve la última posición de donde fue encontrado |
+| [rjust()](https://www.w3schools.com/python/ref_string_rjust.asp) | Devuelve una versión justificada derecha de la cadena        |
+| [rpartition()](https://www.w3schools.com/python/ref_string_rpartition.asp) | Devuelve una tupla donde la cadena se separó en tres partes  |
+| [rsplit()](https://www.w3schools.com/python/ref_string_rsplit.asp) | Divide la cadena en el separador especificado y devuelve una lista |
+| [rstrip()](https://www.w3schools.com/python/ref_string_rstrip.asp) | Devuelve una versión ajuste correcto de la cadena            |
+| [split()](https://www.w3schools.com/python/ref_string_split.asp) | Divide la cadena en el separador especificado y devuelve una lista |
+| [splitlines()](https://www.w3schools.com/python/ref_string_splitlines.asp) | Divide la cadena en los saltos de línea y devuelve una lista |
+| [startswith()](https://www.w3schools.com/python/ref_string_startswith.asp) | Devuelve true si la cadena comienza con el valor especificado |
+| [strip()](https://www.w3schools.com/python/ref_string_strip.asp) | Devuelve una versión recortada de la cadena                  |
+| [swapcase()](https://www.w3schools.com/python/ref_string_swapcase.asp) | Permutas de los casos, se convierte en minúsculas mayúsculas y viceversa |
+| [title()](https://www.w3schools.com/python/ref_string_title.asp) | Convierte el primer carácter de cada palabra en mayúsculas   |
+| [translate()](https://www.tutorialspoint.com/python/string_translate.htm) | Devuelve una cadena traducida                                |
+| [upper()](https://www.w3schools.com/python/ref_string_upper.asp) | Convierte una cadena en mayúsculas                           |
+| [zfill()](https://www.w3schools.com/python/ref_string_zfill.asp) | Rellena la cadena con un número determinado de valores de 0 a principios |
 
 # Buenas prácticas
 
