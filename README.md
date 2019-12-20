@@ -400,6 +400,16 @@ print(len(fruits)) # 2
 
 ```
 
+# Programación orientada a objetos
+
+## Decoradores
+
+**Python** es un lenguaje que acepta **diversos** paradigmas como programación orientada a objetos y la programación  funcional, siendo estos los temas de nuestro siguiente módulo.
+
+Los **decoradores** son una función que envuelve a otra función para modificar o extender su comportamiento.
+
+En Python las **funciones** son ciudadanos de primera clase, *first class citizen*, esto significan que las funciones pueden recibir funciones como **parámetros** y pueden **regresar** funciones. Los **decoradores** utilizan este concepto de manera fundamental.
+
 
 
 # Buenas prácticas
