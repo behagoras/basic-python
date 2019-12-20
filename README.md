@@ -165,16 +165,12 @@ A continuación la lista actualizada hasta hoy (pueden acceder a la documentaci�
 | [`compile()`](https://docs.python.org/3/library/functions.html#compile) | [`globals()`](https://docs.python.org/3/library/functions.html#globals) | [`map()`](https://docs.python.org/3/library/functions.html#map) | [`reversed()`](https://docs.python.org/3/library/functions.html#reversed) | [`__import__()`](https://docs.python.org/3/library/functions.html#__import__) |
 | [`complex()`](https://docs.python.org/3/library/functions.html#complex) | [`hasattr()`](https://docs.python.org/3/library/functions.html#hasattr) | [`max()`](https://docs.python.org/3/library/functions.html#max) | [`round()`](https://docs.python.org/3/library/functions.html#round) |                                                              |
 
-|  Command   |      | Action                                                       |
-| :--------: | :--- | ------------------------------------------------------------ |
-|    dir     |      | Muestra todos las funciones accesibles del objeto            |
-|    Help    |      | imprime la documentación de la función                       |
-| Docstrings |      | Para generar una documentación utilizar: <br />`"" """ <br />`<br />`pass` |
-
-|  Command   |      | Action                                                                                |
-
-|    dir             |      | Muestra todos las funciones accesibles del objeto            |
- |    Help         |      | imprime la documentación de la función                            |
+| Command |      | Action                                            |
+| :-----: | :--- | ------------------------------------------------- |
+|   dir   |      | Muestra todos las funciones accesibles del objeto |
+|  Help   |      | imprime la documentación de la función            |
+|  Slice  |      |                                                   |
+|         |      |                                                   |
 
 **Docstrings**:  Para generar una documentación utilizar triples dobles comillas `"""` :
 
@@ -183,6 +179,14 @@ def my_function():
     """ documentación de la función """ 
     pass
 ```
+
+**slices**
+
+Los slices en Python nos permiten manejar secuencias de una manera poderosa.
+
+Slices en español significa ““rebanada””, si tenemos una secuencia de elementos y queremos una rebanada tenemos una sintaxis para definir qué pedazos queremos de esa secuencia
+
+secuencia[comienzo:final:pasos]
 
 ## Declaración de funciones
 
