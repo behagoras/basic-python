@@ -18,12 +18,23 @@ def list_clients():
     global clients
 
     for idx, client in enumerate(clients):
+
         print('{idx}: {name}, {position} at {company}'.format(
             idx=idx, 
             name=client['name'], 
             position=client['position'], 
-            company=client['company']),
-        )
+            company=client['company'],
+        ))
+
+        # print('{idx}: {name}, {company} {position} {email}'.format(
+        #     idx=idx, 
+        #     name=client['name'], 
+        #     company=client['company'],
+        #     email=client['email'], 
+        #     position=client['position'], 
+        # ))
+
+
 
 
 def create_client(client):
@@ -37,39 +48,35 @@ def create_client(client):
     print('*'*50)
 
 
-def update_client(client_name,updated_client_name):
+def update_client(client_name,updated_client):
     global clients
 
-    if client_name in clients:
-        index=clients.index(client_name)
-        clients[index]=updated_client_name
-        list_clients()
-    else:
+    for idx, client in enumerate(clients):
+        if client['name'] == client_name:
+            clients[idx]=updated_client
         _client_not_found(client_name)
 
 
 def delete_client(client_name):
     global clients
+    print('delete_clients')
 
-    if client_name in clients:
-        clients.remove(client_name)
-
-        # index=clients.index(client_name)
-        # clients.pop(index)
-        
-        list_clients()
-        
-    else:
-        _client_not_found(client_name)
+    for idx, client in enumerate(clients):
+        if clients[idx]['name'] == client_name:
+            popped = clients.pop(idx)
+            print('found client ', popped)
+            list_clients()
+        else:
+            _client_not_found(client_name)
 
 
 def search_client(client_name):
     global clients
 
-    for client in clients:
-        if client == client_name:
-            return True
-        return False
+    for idx, client in enumerate(clients):
+        if clients[idx]['name'] == client_name:
+            return True        
+    return False
 
 
 def _get_client_field(field_name):
@@ -77,6 +84,18 @@ def _get_client_field(field_name):
     while not field:
         field = input('What is the client {}? '.format(field_name))
     return field
+
+
+def _get_client():
+
+    client = {
+        'name': _get_client_field('name'),
+        'company': _get_client_field('company'),
+        'email': _get_client_field('email'),
+        'position': _get_client_field('position'),
+    }
+
+    return client
 
 
 def _get_client_name():
@@ -121,23 +140,16 @@ if __name__ == "__main__":
             command = command.upper()
 
         if command=='C':
-
-            client = {
-                'name': _get_client_field('name'),
-                'company': _get_client_field('company'),
-                'email': _get_client_field('email'),
-                'position': _get_client_field('position'),
-            }
-            create_client(client)
+            create_client( _get_client() )
             list_clients()
         elif command=='R':
             list_clients()
         elif command=='L':
             list_clients()
         elif command=='U':
-            client_name=_get_client_name()
-            updated_client_name=input('What is the updated client name? ')
-            update_client(client_name,updated_client_name)
+            client_name=_get_client_field('name')
+            updated_client=_get_client()
+            update_client(client_name,updated_client)
         elif command=='D':
             client_name=_get_client_name()
             delete_client(client_name)
