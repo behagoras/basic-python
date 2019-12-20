@@ -1,4 +1,4 @@
-# Python
+Python
 
 Este proyecto es un primer acercamiento al lenguaje de programación `Python`
 
@@ -286,6 +286,121 @@ El índice de la primera letra es 0, en la programación se empieza a contar des
 | [translate()](https://www.tutorialspoint.com/python/string_translate.htm) | Devuelve una cadena traducida                                |
 | [upper()](https://www.w3schools.com/python/ref_string_upper.asp) | Convierte una cadena en mayúsculas                           |
 | [zfill()](https://www.w3schools.com/python/ref_string_zfill.asp) | Rellena la cadena con un número determinado de valores de 0 a principios |
+
+## Lists (Arrays equivalents)
+
+Una lista es una estructura de datos y un tipo de dato en python con características especiales. Lo especial de las listas en Python es que nos permiten almacenar cualquier tipo de valor como enteros, cadenas y hasta otras funciones; 
+
+por ejemplo:
+
+```python
+lista = [1, 2.5, 'DevCode', [5,6] ,4]
+```
+
+Una lista es un arreglo de elementos donde podemos ingresar cualquier tipo de dato, para acceder a estos datos podemos hacer mediante un índice.
+
+```python
+print lista[0]
+```
+
+Si no quieres estar imprimir uno por uno los elementos de una lista, puedes recorrerlo utilizando un for.
+
+```python
+for element in lista:
+    print element
+```
+
+
+
+| Method                                                       | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [append()](https://www.w3schools.com/python/ref_list_append.asp) | Añade un elemento al final de la lista                       |
+| [clear()](https://www.w3schools.com/python/ref_list_clear.asp) | Elimina todos los elementos de la lista                      |
+| [copy()](https://www.w3schools.com/python/ref_list_copy.asp) | Devuelve una copia de la lista                               |
+| [count()](https://www.w3schools.com/python/ref_list_count.asp) | Devuelve el número de elementos con el valor especificado    |
+| [extend()](https://www.w3schools.com/python/ref_list_extend.asp) | Añadir los elementos de una lista (o cualquier iterable), hasta el final de la lista actual |
+| [index()](https://www.w3schools.com/python/ref_list_index.asp) | Devuelve el índice del primer elemento con el valor especificado |
+| [insert()](https://www.w3schools.com/python/ref_list_insert.asp) | Añade un elemento en la posición especificada                |
+| [pop()](https://www.w3schools.com/python/ref_list_pop.asp)   | Elimina el elemento en la posición especificada              |
+| [remove()](https://www.w3schools.com/python/ref_list_remove.asp) | Elimina el primer elemento con el valor especificado         |
+| [reverse()](https://www.w3schools.com/python/ref_list_reverse.asp) | Invierte el orden de la lista                                |
+| [sort()](https://www.w3schools.com/python/ref_list_sort.asp) | Ordena la lista                                              |
+
+## Operaciones con listas
+
+Ahora que ya entiendes cómo funcionan las **listas**, podemos ver qué tipo de operaciones y métodos podemos utilizar para  modificarlas, manipularlas y realizar diferentes tipos de cómputos con  esta Estructura de Datos.
+
+- El operador **+(suma)** concatena dos o más listas.
+- El operador ***(multiplicación)** repite los elementos de la misma lista tantas veces los queramos multiplicar
+
+Sólo podemos utilizar **+(suma)** y ***(multiplicación)**.
+
+Las listas tienen varios métodos que podemos utilizar.
+
+## Ejemplos de operadores
+
+### append
+
+Nos permite añadir elementos a listas cambiando el tamaño de la lista a `list_size +=1`. 
+
+```python
+fruits=['banana','kiwi']
+fruits.append('apple')
+print(fruits) # ['banana', 'kiwi', 'apple']
+```
+
+### pop
+
+Nos permite sacar el último elemento de la lista, regresando el valor del elemento quitado, mismo que podrá ser almacenado en alguna otra variable.  
+
+`pop` también recibe un índice y esto nos permite elegir qué elemento queremos eliminar.
+
+```python
+fruits=['banana', 'kiwi', 'apple']
+some_fruit = fruits[0] 
+print(some_fruit) # banana
+print(fruits) # ['banana', 'kiwi', 'apple']
+```
+
+### sort
+
+Modifica la propia lista y ordenarla de mayor a menor. 
+
+Existe otro método llamado `sorted`, que también ordena la lista, pero genera una nueva instancia de la lista.
+
+```python
+random_numbers=[6, 7, 4, 2, 12, 10, 11, 9, 11, 10]
+
+ordered_numbers=sorted(random_numbers) # ordena y asignar el valor ordenado a la variable
+print (ordered_numbers) # [2, 4, 6, 7, 9, 10, 10, 11, 11, 12]
+
+print(random_numbers) # [6, 7, 4, 2, 12, 10, 11, 9, 11, 10]
+random_numbers.sort()  #ordena la lista y la guarda modificando las posiciones del interior
+
+print(random_numbers) # [2, 4, 6, 7, 9, 10, 10, 11, 11, 12]
+```
+
+### del
+
+**`del`** nos permite eliminar elementos vía indices, funciona con *slices*
+
+```python
+fruits=['banana', 'kiwi', 'apple']
+print(len(fruits)) # 3
+del fruits[0] #Borraras la posicion indicada en este caso 'banana'
+print(fruits) # ['kiwi', 'apple']
+print(len(fruits)) # 2
+```
+
+### remove
+
+**`remove`** nos permite es pasarle un valor para que Python  compare internamente los valores y determina cuál de ellos hace match o  son iguales para eliminarlos.
+
+```python
+
+```
+
+
 
 # Buenas prácticas
 

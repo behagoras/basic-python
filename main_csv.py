@@ -1,18 +1,20 @@
-clients = ['Pablo','Ricardo']
+clients = 'Pablo,Ricardo,'
 
 
 def list_clients():
     global clients
 
-    for idx, client in enumerate(clients):
-        print('{} {}'.format(idx, client))
+    print('Clients list: ',clients)
 
 
 def create_client(client_name):
     global clients
 
     if client_name not in clients:
-        clients.append(client_name)
+        clients+=client_name
+        _add_trailing_comma()
+        print('*'*50)
+        print(client_name,'added to database')
     else:
         print(client_name+' already in database')
 
@@ -22,9 +24,8 @@ def create_client(client_name):
 def update_client(client_name,updated_client_name):
     global clients
 
-    if client_name in clients:
-        index=clients.index(client_name)
-        clients[index]=updated_client_name
+    if client_name.upper() in clients.upper():
+        clients=clients.replace(client_name+',',updated_client_name+',')
         list_clients()
     else:
         _client_not_found(client_name)
@@ -34,13 +35,8 @@ def delete_client(client_name):
     global clients
 
     if client_name in clients:
-        clients.remove(client_name)
-
-        # index=clients.index(client_name)
-        # clients.pop(index)
-        
+        clients=clients.replace(client_name+',','')
         list_clients()
-        
     else:
         _client_not_found(client_name)
 
@@ -48,10 +44,20 @@ def delete_client(client_name):
 def search_client(client_name):
     global clients
 
-    for client in clients:
-        if client == client_name:
+    clients_list = clients.split(',')
+
+    for client in clients_list:
+        if client.upper() == client_name.upper():
             return True
-        return False
+
+    return False
+    # return client_name in clients # This line does the same
+
+
+def _add_trailing_comma():
+    global clients
+
+    clients+=','
 
 
 def _get_client_name():
