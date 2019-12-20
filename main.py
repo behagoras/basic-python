@@ -1,17 +1,27 @@
-clients = [
-    {
-        'name':'Pablo',
-        'company':'Google',
-        'email':'pablo@google.com',
-        'position':'Software Engineer',
-    },
-    {
-        'name':'Pedro',
-        'company':'Facebook',
-        'email':'pedro@facebook.com',
-        'position':'Database Engineer',
-    },
-]
+import sys
+import csv
+import os
+
+CLIENT_TABLE='.clients.csv'
+CLIENT_SCHEMA=['name', 'company', 'email', 'position']
+clients = []
+
+def _initialize_clients_from_storage():
+    with open(CLIENT_TABLE, mode='r') as f:
+        reader = csv.DictReader(f, fieldnames=CLIENT_SCHEMA)
+
+        for row in reader:
+            clients.append(row)
+
+def _save_clients_to_storage():
+    temp_table_name='{}.tmp'.format(CLIENT_TABLE)
+    with open(temp_table_name,mode='w') as f:
+        writer = csv.DictWriter(f, fieldnames=CLIENT_SCHEMA)
+        writer.writerows(clients)
+
+        os.remove(CLIENT_TABLE)
+        os.rename(temp_table_name,CLIENT_TABLE)
+
 
 
 def list_clients():
@@ -65,7 +75,6 @@ def delete_client(client_name):
         if clients[idx]['name'] == client_name:
             popped = clients.pop(idx)
             print('found client ', popped)
-            list_clients()
         else:
             _client_not_found(client_name)
 
@@ -129,41 +138,39 @@ def print_welcome():
 
 if __name__ == "__main__":
 
-    while True:
+    _initialize_clients_from_storage()
 
-        command=False
-        while not command:
+    command=False
+    while not command:
 
-            print_welcome()
-            
-            command = input()
-            command = command.upper()
+        print_welcome()
+        
+        command = input()
+        command = command.upper()
 
-        if command=='C':
-            create_client( _get_client() )
-            list_clients()
-        elif command=='R':
-            list_clients()
-        elif command=='L':
-            list_clients()
-        elif command=='U':
-            client_name=_get_client_field('name')
-            updated_client=_get_client()
-            update_client(client_name,updated_client)
-        elif command=='D':
-            client_name=_get_client_name()
-            delete_client(client_name)
-        elif command=='S':
-            client_name=_get_client_name()
-            found=search_client(client_name)
+    if command=='C':
+        create_client( _get_client() )
+    elif command=='L' or command=='R':
+        list_clients()
+    elif command=='U':
+        client_name=_get_client_field('name')
+        updated_client=_get_client()
+        update_client(client_name,updated_client)
+    elif command=='D':
+        client_name=_get_client_name()
+        delete_client(client_name)
+    elif command=='S':
+        client_name=_get_client_name()
+        found=search_client(client_name)
 
-            if found:
-                print('Client '+client_name+' is in the client list')
-            else:
-                print('Client {} is not in the client\s list'.format(client_name))
-
-        elif command=='Q':
-            print('Thank you for your time, please come back later')
-            break
+        if found:
+            print('Client '+client_name+' is in the client list')
         else:
-            print('Command is invalid')
+            print('Client {} is not in the client\s list'.format(client_name))
+
+    elif command=='Q':
+        print('Thank you for your time, please come back later')
+    else:
+        print('Command is invalid')
+
+    _save_clients_to_storage()
